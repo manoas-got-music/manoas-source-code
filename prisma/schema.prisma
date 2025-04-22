@@ -45,6 +45,8 @@ model Stuff {
 }
 
 model JamSessions {
+  id            Int       @id @default(autoincrement())
+  name          String
   startTime     String
   endTime       String
   date          String
