@@ -22,6 +22,7 @@ enum Role {
   ADMIN
 }
 
+//Legacy
 model User {
   id       Int    @id @default(autoincrement())
   email    String @unique
@@ -29,6 +30,7 @@ model User {
   role     Role   @default(USER)
 }
 
+//Legacy
 enum Condition {
   excellent
   good
@@ -36,6 +38,7 @@ enum Condition {
   poor
 }
 
+//Legacy
 model Stuff {
   id        Int       @id @default(autoincrement())
   name      String
