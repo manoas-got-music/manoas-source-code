@@ -1,4 +1,4 @@
-name: ci-nextjs-application-template
+name: Manoa's Got Music
 on:
   push:
     branches: [main, master]
