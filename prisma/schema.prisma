@@ -44,11 +44,23 @@ model Stuff {
   owner     String
 }
 
+model JamSessions {
+  startTime     String
+  endTime       String
+  date          String
+  genre         String
+  description   String
+  organizer     String
+}
+
 model Musician {
     id          Int    @id @default(autoincrement())
     firstName   String
     lastName    String
+    instrument  String
+    genres      String
     image       String
     description String
     owner       String
+    jamSessions JamSessions[]
 }
