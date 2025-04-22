@@ -43,3 +43,12 @@ model Stuff {
   condition Condition @default(good)
   owner     String
 }
+
+model Musician {
+    id          Int    @id @default(autoincrement())
+    firstName   String
+    lastName    String
+    image       String
+    description String
+    owner       String
+}
