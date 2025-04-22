@@ -20,13 +20,13 @@ const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        console.log("📧 Email:", credentials?.email);
-  console.log("🔒 Password:", credentials?.password);
+        console.log('📧 Email:', credentials?.email);
+        console.log('🔒 Password:', credentials?.password);
 
-  if (!credentials?.email || !credentials.password) {
-    console.log("⛔ Missing credentials");
-    return null;
-  }
+        if (!credentials?.email || !credentials.password) {
+          console.log('⛔ Missing credentials');
+          return null;
+        }
         if (!credentials?.email || !credentials.password) {
           return null;
         }
