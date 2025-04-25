@@ -3,6 +3,7 @@
 import { Stuff, Condition } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
+import { Profile } from 'next-auth';
 import { prisma } from './prisma';
 
 /**
@@ -49,7 +50,23 @@ export async function editStuff(stuff: Stuff) {
   // After updating, redirect to the list page
   redirect('/list');
 }
+export async function editProfile(profile: Profile) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.profile.update({
+    where: { id: profile.id },
+    data: {
+      firstName: profile.firstName,
+      lastName: profile.lastName,
+      instruments: profile.instruments,
+      genres: profile.genres,
+      image: profile.image,
+      description: profile.description,
 
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
+}
 /**
  * Deletes an existing stuff from the database.
  * @param id, the id of the stuff to delete.
