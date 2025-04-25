@@ -60,8 +60,7 @@ model JamSessions {
 
 model Musician {
     id          Int    @id @default(autoincrement())
-    firstName   String
-    lastName    String
+    name        String
     instrument  String
     genres      String
     image       String
