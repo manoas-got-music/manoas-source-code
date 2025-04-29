@@ -63,7 +63,7 @@ model JamSession {
   name        String
   startTime   String
   endTime     String
-  date        String
+  date        DateTime   // Changed from String to DateTime
   genre       String
   description String
   organizer   String
