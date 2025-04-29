@@ -1,6 +1,6 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
+    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN"},
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
@@ -9,5 +9,9 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultMusicians": [
+    {"name": "John", "instrument": "Tuba", "genres": "Classical", "image": "/test.png", "description": "Mic test one two", "owner": "john@foo.com"}
   ]
 }

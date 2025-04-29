@@ -13,14 +13,15 @@ datasource db {
   // for local development
   // url      = env("DATABASE_URL")
   // for Vercel
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL")
+   url       = env("POSTGRES_PRISMA_URL")
+   directUrl = env("POSTGRES_URL")
 }
 
 enum Role {
   USER
   ADMIN
 }
+
 
 model User {
   id       Int    @id @default(autoincrement())
@@ -29,6 +30,7 @@ model User {
   role     Role   @default(USER)
 }
 
+//Legacy
 enum Condition {
   excellent
   good
@@ -36,10 +38,34 @@ enum Condition {
   poor
 }
 
+//Legacy
 model Stuff {
   id        Int       @id @default(autoincrement())
   name      String
   quantity  Int
   condition Condition @default(good)
   owner     String
+}
+
+model Musician {
+  id          Int           @id @default(autoincrement())
+  name        String
+  instrument  String
+  genres      String[] // ✅ 支持多个 genre
+  image       String
+  description String
+  owner       String
+  jamSessions JamSession[]  
+}
+
+model JamSession {
+  id          Int        @id @default(autoincrement())
+  name        String
+  startTime   String
+  endTime     String
+  date        String
+  genre       String
+  description String
+  organizer   String
+  musicians   Musician[] @relation()
 }

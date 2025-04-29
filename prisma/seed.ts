@@ -36,6 +36,21 @@ async function main() {
       },
     });
   }
+  config.defaultMusicians.forEach(async (musician, index) => {
+    console.log(`  Adding musician: ${musician.name} `);
+    await prisma.musician.upsert({
+      where: { id: index + 1 },
+      update: {},
+      create: {
+        name: musician.name,
+        instrument: musician.instrument,
+        genres: musician.genres,
+        image: musician.image,
+        description: musician.description,
+        owner: musician.owner,
+      },
+    });
+  });
 }
 main()
   .then(() => prisma.$disconnect())
