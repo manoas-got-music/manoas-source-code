@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 // eslint-disable-next-line import/prefer-default-export
 export async function GET() {
   try {
-    const jams = await prisma.jamSessions.findMany({
+    const jams = await prisma.jamSession.findMany({
       orderBy: { date: 'asc' },
     });
     return NextResponse.json(jams);
