@@ -46,7 +46,7 @@ const Home = () => {
             {showProfile && (
               <Row className="mt-5">
                 <Col>
-                  <UserProfile user={mockUser} />
+                  test
                 </Col>
               </Row>
             )}
