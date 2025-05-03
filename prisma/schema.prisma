@@ -38,7 +38,6 @@ enum Condition {
   poor
 }
 
-//Legacy
 model Stuff {
   id        Int       @id @default(autoincrement())
   name      String
