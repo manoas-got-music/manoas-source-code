@@ -81,7 +81,6 @@ const Home = () => {
           <Row>
             <Col>
               <h2>Your Profile</h2>
-              <UserProfile user={mockUser} />
             </Col>
           </Row>
         )}
