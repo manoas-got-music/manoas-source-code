@@ -1,13 +1,14 @@
 'use server';
 
-import { Stuff, Condition, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
+import { DateTime } from 'next-auth/providers/kakao';
 import { prisma } from './prisma';
 
 /**
  * Adds a new stuff to the database.
- */
+ 
 export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
   let condition: Condition = 'good';
   if (stuff.condition === 'poor') condition = 'poor';
@@ -27,7 +28,7 @@ export async function addStuff(stuff: { name: string; quantity: number; owner: s
 
 /**
  * Edits an existing stuff in the database.
- */
+d
 export async function editStuff(stuff: Stuff) {
   await prisma.stuff.update({
     where: { id: stuff.id },
@@ -38,12 +39,12 @@ export async function editStuff(stuff: Stuff) {
 
 /**
  * Deletes an existing stuff from the database.
- */
+
 export async function deleteStuff(id: number) {
   await prisma.stuff.delete({ where: { id } });
   redirect('/list');
 }
-
+*/
 /**
  * Creates a new user in the database.
  */
@@ -71,6 +72,25 @@ export async function addJamSession(jam: Omit<Prisma.JamSessionCreateInput, 'id'
   redirect('/jam');
 }
 
+export async function createJamSession(session: { name: string; startTime: string; endTime: string
+  date: DateTime; genre: string; description: string; organizer: string; isPublic: boolean }) {
+  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
+
+  await prisma.session.create({
+    data: {
+      name: session.name,
+      startTime: session.startTime,
+      endTime: session.endTime,
+      date: session.date,
+      genre: session.genre,
+      description: session.description,
+      organizer: session.organizer,
+      isPublic: session.isPublic,
+    },
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
 /**
  * Returns a list of jam sessions from the database.
  */

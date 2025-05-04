@@ -67,5 +67,6 @@ model JamSession {
   genre       String
   description String
   organizer   String
+  isPublic    Boolean
   musicians   Musician[] @relation()
 }
