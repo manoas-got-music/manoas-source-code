@@ -15,10 +15,14 @@ export const EditStuffSchema = Yup.object({
   owner: Yup.string().required(),
 });
 
-export createJamSessionSchema = Yup.object({
+export const createJamSessionSchema = Yup.object({
   id: Yup.number().required(),
-  name: Yup.string().required(), 
+  name: Yup.string().required(),
   startTime: Yup.string().required(),
   endTime: Yup.string().required(),
-  date: Yup.DateTime().required(), genre: string; description: string; organizer: string; isPublic: boolean
-})
+  date: Yup.string().required(),
+  genre: Yup.string().required(),
+  description: Yup.string().required(),
+  organizer: Yup.string().required(),
+  isPublic: Yup.boolean().required(),
+});
