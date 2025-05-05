@@ -3,12 +3,11 @@
 import { Prisma } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
-import { DateTime } from 'next-auth/providers/kakao';
 import { prisma } from './prisma';
 
 /**
  * Adds a new stuff to the database.
- 
+
 export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
   let condition: Condition = 'good';
   if (stuff.condition === 'poor') condition = 'poor';
@@ -72,11 +71,11 @@ export async function addJamSession(jam: Omit<Prisma.JamSessionCreateInput, 'id'
   redirect('/jam');
 }
 
-export async function createJamSession(session: { name: string; startTime: string; endTime: string
-  date: DateTime; genre: string; description: string; organizer: string; isPublic: boolean }) {
+export async function createJamSession(session: { name: string; startTime: string; endTime: string;
+  date: string; genre: string; description: string; organizer: string; location: string; isPublic: boolean; }) {
   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
 
-  await prisma.session.create({
+  await prisma.jamSession.create({
     data: {
       name: session.name,
       startTime: session.startTime,
@@ -85,6 +84,7 @@ export async function createJamSession(session: { name: string; startTime: strin
       genre: session.genre,
       description: session.description,
       organizer: session.organizer,
+      location: session.location,
       isPublic: session.isPublic,
     },
   });

@@ -1,5 +1,3 @@
-/* eslint-disable import/extensions */
-
 'use client';
 
 import { useSession } from 'next-auth/react';
@@ -8,23 +6,23 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import swal from 'sweetalert';
 import { redirect } from 'next/navigation';
-import { DateTime } from 'next-auth/providers/kakao';
 import { createJamSession } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { createJamSessionSchema } from '@/lib/validationSchemas';
 
-const onSubmit = async (session: { name: string; startTime: string; endTime: string
-  date: DateTime; genre: string; description: string; organizer: string; isPublic: boolean }) => {
+const onSubmit = async (data: { name: string; startTime: string;
+  endTime: string; date: string; genre:string; description: string;
+  organizer: string; location: string; isPublic: boolean; }) => {
   // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
-  await createJamSession(session);
-  swal('Success', 'Your session has been added', 'success', {
+  await createJamSession(data);
+  swal('Success', 'Your Jam Session has been added', 'success', {
     timer: 2000,
   });
 };
 
-const AddJamSessionForm: React.FC = () => {
+const CreateJamSession: React.FC = () => {
   const { data: session, status } = useSession();
-  // console.log('AddContactForm', status, session);
+  // console.log('AddStuffForm', status, session);
   const currentUser = session?.user?.email || '';
   const {
     register,
@@ -44,59 +42,86 @@ const AddJamSessionForm: React.FC = () => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={10}>
+        <Col xs={5}>
           <Col className="text-center">
-            <h2>Add Contact</h2>
+            <h2>Add Session</h2>
           </Col>
           <Card>
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
-                  <Form.Label>First Name</Form.Label>
+                  <Form.Label>Name</Form.Label>
                   <input
                     type="text"
-                    {...register('firstName')}
-                    className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
+                    {...register('name')}
+                    className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.firstName?.message}</div>
+                  <div className="invalid-feedback">{errors.name?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Last Name</Form.Label>
+                  <Form.Label>Start Time (HOUR:MINUTE)</Form.Label>
                   <input
-                    type="text"
-                    {...register('lastName')}
-                    className={`form-control ${errors.lastName ? 'is-invalid' : ''}`}
+                    type="string"
+                    {...register('startTime')}
+                    className={`form-control ${errors.startTime ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.lastName?.message}</div>
+                  <div className="invalid-feedback">{errors.startTime?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Address</Form.Label>
+                  <Form.Label>End Time (HOUR:MINUTE)</Form.Label>
                   <input
-                    type="text"
-                    {...register('address')}
-                    className={`form-control ${errors.address ? 'is-invalid' : ''}`}
+                    type="string"
+                    {...register('endTime')}
+                    className={`form-control ${errors.endTime ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.address?.message}</div>
+                  <div className="invalid-feedback">{errors.endTime?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Image</Form.Label>
+                  <Form.Label>Date</Form.Label>
                   <input
-                    type="text"
-                    {...register('image')}
-                    className={`form-control ${errors.image ? 'is-invalid' : ''}`}
+                    type="string"
+                    {...register('date')}
+                    className={`form-control ${errors.date ? 'is-invalid' : ''}`}
                   />
-                  <div className="invalid-feedback">{errors.image?.message}</div>
+                  <div className="invalid-feedback">{errors.date?.message}</div>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Genre</Form.Label>
+                  <input
+                    type="string"
+                    {...register('genre')}
+                    className={`form-control ${errors.genre ? 'is-invalid' : ''}`}
+                  />
+                  <div className="invalid-feedback">{errors.genre?.message}</div>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Description</Form.Label>
                   <input
-                    type="textfield"
+                    type="string"
                     {...register('description')}
                     className={`form-control ${errors.description ? 'is-invalid' : ''}`}
                   />
                   <div className="invalid-feedback">{errors.description?.message}</div>
                 </Form.Group>
-                <input type="hidden" {...register('owner')} value={currentUser} />
+                <Form.Group>
+                  <Form.Label>Is Public? (1 for yes, 0 for no)</Form.Label>
+                  <input
+                    type="boolean"
+                    {...register('isPublic')}
+                    className={`form-control ${errors.isPublic ? 'is-invalid' : ''}`}
+                  />
+                  <div className="invalid-feedback">{errors.isPublic?.message}</div>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Location</Form.Label>
+                  <input
+                    type="string"
+                    {...register('location')}
+                    className={`form-control ${errors.location ? 'is-invalid' : ''}`}
+                  />
+                  <div className="invalid-feedback">{errors.location?.message}</div>
+                </Form.Group>
+                <input type="hidden" {...register('organizer')} value={currentUser} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">
                     <Col>
@@ -120,4 +145,4 @@ const AddJamSessionForm: React.FC = () => {
   );
 };
 
-export default AddContactForm;
+export default CreateJamSession;

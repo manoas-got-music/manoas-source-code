@@ -16,7 +16,6 @@ export const EditStuffSchema = Yup.object({
 });
 
 export const createJamSessionSchema = Yup.object({
-  id: Yup.number().required(),
   name: Yup.string().required(),
   startTime: Yup.string().required(),
   endTime: Yup.string().required(),
@@ -24,5 +23,6 @@ export const createJamSessionSchema = Yup.object({
   genre: Yup.string().required(),
   description: Yup.string().required(),
   organizer: Yup.string().required(),
+  location: Yup.string().required(),
   isPublic: Yup.boolean().required(),
 });
