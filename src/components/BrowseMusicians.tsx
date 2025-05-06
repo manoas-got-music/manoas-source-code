@@ -16,7 +16,6 @@ export default function BrowseMusicians() {
       if (error) {
         console.error('Failed to fetch musicians:', error);
       } else {
-        // 如果 genres 是数组，就转换为 string
         const formatted = data.map((m) => ({
           ...m,
           genres: Array.isArray(m.genres) ? m.genres.join(', ') : m.genres,
