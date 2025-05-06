@@ -11,7 +11,7 @@ export interface UserProfileProps {
     name: string;
     image?: string;
     instrument?: string;
-    genres?: string; // ✅ 改成 string
+    genres?: string; //
     description?: string;
     owner?: string;
     youtube?: string;
