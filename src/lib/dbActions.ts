@@ -1,6 +1,6 @@
 'use server';
 
-import { Stuff, Condition, Prisma } from '@prisma/client';
+import { Stuff, Condition, Prisma, Musician } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -76,4 +76,20 @@ export async function addJamSession(jam: Omit<Prisma.JamSessionCreateInput, 'id'
  */
 export async function listJamSessions() {
   return prisma.jamSession.findMany({ orderBy: { date: 'asc' } });
+}
+export async function editProfile(musician: Musician) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.musician.update({
+    where: { id: musician.id },
+    data: {
+      name: musician.name,
+      instrument: musician.instrument,
+      genres: musician.genres,
+      image: musician.image,
+      description: musician.description,
+
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
 }

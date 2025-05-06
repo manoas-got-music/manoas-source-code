@@ -5,6 +5,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 
@@ -18,6 +19,7 @@ const AppNavbar: React.FC<NavBarProps> = ({ onSelect, currentView }) => {
   const currentUser = session?.user?.email;
   const userWithRole = session?.user as { email: string; randomKey: string };
   const role = userWithRole?.randomKey;
+  const pathName = usePathname();
 
   return (
     <Navbar className="green-background" expand="lg">
@@ -41,7 +43,7 @@ const AppNavbar: React.FC<NavBarProps> = ({ onSelect, currentView }) => {
             <Nav.Link onClick={() => onSelect('about')} active={currentView === 'about'}>
               About
             </Nav.Link>
-            <Nav.Link onClick={() => onSelect('edit')} active={currentView === 'edit'}>
+            <Nav.Link id="profile-nav" href="/profile" key="profile" active={pathName === '/profile'}>
               Profile
             </Nav.Link>
             {currentUser && role === 'ADMIN' && (
