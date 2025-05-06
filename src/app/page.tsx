@@ -2,22 +2,10 @@
 
 import { useState } from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import UserProfile from '../components/UserProfile';
 import BrowseMusicians from '../components/BrowseMusicians';
 import JamSessions from '../components/JamSessions';
 import AppNavbar from '../components/Navbar';
 import About from '../components/About';
-
-const mockUser = {
-  name: 'Travis Thompson',
-  profilePic: '/test.png',
-  instrument: 'Guitar, Vocals',
-  genres: ['Jazz', 'Funk', 'Neo-Soul'],
-  goals: 'Looking to casually jam and maybe join a student band',
-  bio: 'Third-year music major. Into improv, grooves, and late-night sessions.',
-  youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-  soundcloud: 'https://soundcloud.com/fakeuser123',
-};
 
 const Home = () => {
   const [view, setView] = useState<'home' | 'browse' | 'about' | 'logout' | 'jam' | 'edit'>('home');

@@ -7,6 +7,7 @@
 import { useSession } from 'next-auth/react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import Image from 'next/image';
 
 interface NavBarProps {
   onSelect: (key: string) => void;
@@ -23,11 +24,12 @@ const AppNavbar: React.FC<NavBarProps> = ({ onSelect, currentView }) => {
     <Navbar className="green-background" expand="lg">
       <Container>
         <Navbar.Brand onClick={() => onSelect('home')} style={{ cursor: 'pointer' }}>
-          <img
-            src="./Manoa-Logo.png"
-            width="200"
-            alt="Manoa Logo"
-          />
+        <Image
+          src="/Manoa-Logo.png"
+          width={200}
+          height={80} // 你可以根据实际图片高度调整
+          alt="Manoa Logo"
+        />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
-// eslint-disable-next-line import/extensions
 import { addJamSession } from '@/lib/dbActions';
 
-export async function POST(req: Request) {
+export default async function POST(req: Request) {
   try {
     const body = await req.json();
     await addJamSession(body);
