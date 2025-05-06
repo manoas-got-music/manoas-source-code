@@ -25,6 +25,17 @@ interface Config {
     description: string;
     owner: string;
   }[];
+  defaultJamSessions: {
+    name: string;
+    startTime: string;
+    endTime: string;
+    date: string;
+    genre: string;
+    description: string;
+    organizer: string;
+    isPublic: boolean;
+    location: string;
+  }[];
 }
 
 const configTyped: Config = config as Config;
@@ -78,6 +89,24 @@ async function main() {
         image: musician.image,
         description: musician.description,
         owner: musician.owner,
+      },
+    });
+  });
+  configTyped.defaultJamSessions.forEach(async (jamSession, index) => {
+    console.log(`  Adding session: ${jamSession.name}`);
+    await prisma.jamSession.upsert({
+      where: { id: index + 1 },
+      update: {},
+      create: {
+        name: jamSession.name,
+        startTime: jamSession.startTime,
+        endTime: jamSession.endTime,
+        date: jamSession.date,
+        genre: jamSession.genre,
+        description: jamSession.description,
+        organizer: jamSession.organizer,
+        isPublic: jamSession.isPublic,
+        location: jamSession.location,
       },
     });
   });
