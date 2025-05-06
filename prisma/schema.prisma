@@ -54,17 +54,18 @@ model Musician {
   image       String
   description String
   owner       String
-  jamSessions JamSession[]  
 }
 
 model JamSession {
-  id          Int        @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   startTime   String
   endTime     String
-  date        DateTime   // Changed from String to DateTime
+  date        String
   genre       String
   description String
   organizer   String
-  musicians   Musician[] @relation()
+  isPublic    Boolean
+  location    String
+  musicians   Int[]
 }
