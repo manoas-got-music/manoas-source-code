@@ -69,5 +69,5 @@ model JamSession {
   organizer   String
   isPublic    Boolean
   location    String
-  musicians   Musician[] @relation()
+  musicians   Int[]
 }

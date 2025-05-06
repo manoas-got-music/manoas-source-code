@@ -91,6 +91,19 @@ export async function createJamSession(session: { name: string; startTime: strin
   // After adding, redirect to the list page
   redirect('/jam');
 }
+export async function joinSession(join: { jamSession: JamSession; musicianId: number; }) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.jamSession.update({
+    where: { id: join.jamSession.id },
+    data: {
+      musicians: {
+        push: join.musicianId,
+      },
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/jam');
+}
 /**
  * Returns a list of jam sessions from the database.
  */
