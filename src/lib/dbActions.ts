@@ -1,6 +1,6 @@
 'use server';
 
-import { Prisma } from '@prisma/client';
+import { Prisma, JamSession } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -89,7 +89,7 @@ export async function createJamSession(session: { name: string; startTime: strin
     },
   });
   // After adding, redirect to the list page
-  redirect('/list');
+  redirect('/jam');
 }
 /**
  * Returns a list of jam sessions from the database.
