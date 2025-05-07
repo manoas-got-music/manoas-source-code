@@ -55,7 +55,6 @@ model Musician {
   image       String
   description String
   owner       String
-  jamSessions JamSession[]  
 }
 
 model JamSession {
