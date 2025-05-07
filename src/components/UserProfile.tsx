@@ -20,7 +20,7 @@ export interface UserProfileProps {
   onInvite?: () => void;
 }
 
-const UserProfile: React.FC<UserProfileProps> = ({ user, onInvite }) => (
+const UserProfile: React.FC<UserProfileProps> = ({ user, onInvite = () => {} }) => (
   <div className="max-w-3xl mx-auto px-4 py-4 border rounded shadow-sm bg-white space-y-4">
     <div className="flex items-center gap-6">
       <img
@@ -33,15 +33,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onInvite }) => (
         <h1 className="text-2xl font-bold">{user.name}</h1>
         {user.instrument && <p className="text-muted">{user.instrument}</p>}
         {user.description && <p className="mt-2">{user.description}</p>}
-        {onInvite && (
-          <button
-            type="button"
-            onClick={onInvite}
-            className="btn btn-outline-success btn-sm mt-2"
-          >
-            Invite to Jam
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={onInvite}
+          className="btn btn-outline-success btn-sm mt-2"
+        >
+          Invite to Jam
+        </button>
       </div>
     </div>
 
@@ -91,10 +89,5 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onInvite }) => (
     )}
   </div>
 );
-
-// ✅ Add defaultProps to satisfy eslint rule
-UserProfile.defaultProps = {
-  onInvite: undefined,
-};
 
 export default UserProfile;
