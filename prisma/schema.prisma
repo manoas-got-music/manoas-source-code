@@ -51,7 +51,7 @@ model Musician {
   id          Int           @id @default(autoincrement())
   name        String
   instrument  String
-  genres      String[] // ✅ 支持多个 genre
+  genres      String // ✅ 支持多个 genre
   image       String
   description String
   owner       String
