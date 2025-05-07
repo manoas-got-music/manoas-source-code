@@ -11,19 +11,18 @@ export interface UserProfileProps {
     name: string;
     image?: string;
     instrument?: string;
-    genres?: string; //
+    genres?: string;
     description?: string;
     owner?: string;
     youtube?: string;
     soundcloud?: string;
   };
+  onInvite?: () => void;
 }
 
-const UserProfile: React.FC<UserProfileProps> = ({ user }) => (
-  // eslint-disable-next-line react/jsx-no-comment-textnodes
+const UserProfile: React.FC<UserProfileProps> = ({ user, onInvite }) => (
   <div className="max-w-3xl mx-auto px-4 py-4 border rounded shadow-sm bg-white space-y-4">
     <div className="flex items-center gap-6">
-
       <img
         src={user.image || '/test.png'}
         alt={`${user.name}'s profile`}
@@ -34,28 +33,32 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => (
         <h1 className="text-2xl font-bold">{user.name}</h1>
         {user.instrument && <p className="text-muted">{user.instrument}</p>}
         {user.description && <p className="mt-2">{user.description}</p>}
-        <button
-          type="button"
-          // eslint-disable-next-line no-alert
-          onClick={() => alert(`Invite sent to ${user.name} to join your jam session!`)}
-          className="btn btn-outline-success btn-sm mt-2"
-        >
-          Invite to Jam
-        </button>
+        {onInvite && (
+          <button
+            type="button"
+            onClick={onInvite}
+            className="btn btn-outline-success btn-sm mt-2"
+          >
+            Invite to Jam
+          </button>
+        )}
       </div>
     </div>
 
     {typeof user.genres === 'string' && (
-    <div>
-      <h2 className="fw-semibold mb-2">Genres</h2>
-      <div className="d-flex flex-wrap gap-2">
-        {user.genres.split(',').map((genre) => (
-          <span key={genre.trim()} className="badge bg-primary bg-opacity-25 text-primary">
-            {genre.trim()}
-          </span>
-        ))}
+      <div>
+        <h2 className="fw-semibold mb-2">Genres</h2>
+        <div className="d-flex flex-wrap gap-2">
+          {user.genres.split(',').map((genre) => (
+            <span
+              key={genre.trim()}
+              className="badge bg-primary bg-opacity-25 text-primary"
+            >
+              {genre.trim()}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
     )}
 
     {user.owner && (
@@ -88,5 +91,10 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => (
     )}
   </div>
 );
+
+// ✅ Add defaultProps to satisfy eslint rule
+UserProfile.defaultProps = {
+  onInvite: undefined,
+};
 
 export default UserProfile;
