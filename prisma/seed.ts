@@ -25,8 +25,8 @@ interface Config {
     description: string;
     owner: string;
   }[];
-  defaultJamSessions: {
-    name: string;
+  /* defaultJamSessions: { // Should have been used to create default jam sessions, but it doesn't work
+    name: string;          // Creates conflicts with config
     startTime: string;
     endTime: string;
     date: string;
@@ -35,7 +35,7 @@ interface Config {
     organizer: string;
     isPublic: boolean;
     location: string;
-  }[];
+  }[]; */
 }
 
 const configTyped: Config = config as Config;
@@ -92,7 +92,7 @@ async function main() {
       },
     });
   });
-  configTyped.defaultJamSessions.forEach(async (jamSession, index) => {
+  /* configTyped.defaultJamSessions.forEach(async (jamSession, index) => {
     console.log(`  Adding session: ${jamSession.name}`);
     await prisma.jamSession.upsert({
       where: { id: index + 1 },
@@ -109,7 +109,7 @@ async function main() {
         location: jamSession.location,
       },
     });
-  });
+  }); */
 }
 
 main()

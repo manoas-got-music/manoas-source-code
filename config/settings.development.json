@@ -27,17 +27,5 @@
     "description": "Third-year music major. Into improv, grooves, and late-night sessions.", "owner": "travis@music.edu" },
     { "name": "Emily Park", "instrument": "Violin, Keyboard", "genres": "Pop, Lo-fi, K-Classical", "image": "/Emily-Park.png", 
     "description": "UH sophomore. Likes lo-fi vibes and playing string covers of K-pop.", "owner": "emily@music.edu" }
-  ],
-
-  "defaultJamSessions": [
-  {"name": "Funk Fusion Friday", "startTime": "6:00 PM", "endTime": "8:00 PM", "date": "April 19, 2025", "genre": "Jazz / Funk", "description": "Friday Night Funkin", 
-  "organizer": "jacob@music.edu", "isPublic": "1", "location": "Campus Music Room A1" },
-  {"name": "Indie Rock Jam", "startTime": "4:00 PM", "endTime": "5:00 PM", "date": "April 16, 2025", "genre": "Indie Rock", "description": "Indie Rock Is The Best!", 
-  "organizer": "jacob@music.edu", "isPublic": "1", "location": "Dorm Lounge B2" },
-  {"name": "Ultra Secret Private", "startTime": "6:00 PM", "endTime": "8:00 PM", "date": "April 23, 2025", "genre": "Secret", "description": "If you can read this, you're invited!", 
-  "organizer": "emily@music.edu", "isPublic": "0", "location": "Campus Courtyard" },
-  {"name": "Campus Acoustic Circle", "startTime": "3", "endTime": "5:00 PM", "date": "April 22, 2025", "genre": "Acoustic", "description": "Big Place, Big Acoustics", 
-  "organizer": "lihua@music.edu", "isPublic": "1", "location": "UH Manoa Lawn" }
-  
   ]
 }
