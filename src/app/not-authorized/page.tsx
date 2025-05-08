@@ -7,7 +7,7 @@ const NotAuthorized = () => (
       <Row className="justify-content-center">
         <Col xs={4} className="text-center">
           <h2>
-            <p>Not Authorized</p>
+            <p>Not Authorized//Please sign in with a different account</p>
           </h2>
         </Col>
       </Row>
