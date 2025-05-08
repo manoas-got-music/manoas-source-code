@@ -11,8 +11,8 @@ import swal from 'sweetalert';
 import { redirect } from 'next/navigation';
 import { joinSession } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { supabase } from '../lib/supabaseClient';
 import { JoinSessionSchema } from '@/lib/validationSchemas';
+import { supabase } from '../lib/supabaseClient';
 
 const onSubmit = async (data: { jamSessionId: number; musicianId: number; }) => {
   // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
@@ -23,13 +23,17 @@ const onSubmit = async (data: { jamSessionId: number; musicianId: number; }) => 
 };
 
 const JoinJamSession = ({ jamSession }: { jamSession: JamSession }) => {
-  const { status } = useSession();
+  // const { status } = useSession();
   // console.log('AddContactForm', status, session);
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  //  const {
+  //  data: { user },
+  //  } = await supabase.auth.getUser();
 
-  const userId = user.id;
+  // const userId = user.id;
+  const { data: session, status } = useSession();
+  // console.log('AddContactForm', status, session);
+  const currentUser = session?.user?.email || '';
+
   const {
     register,
     handleSubmit,
