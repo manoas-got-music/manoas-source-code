@@ -1,0 +1,45 @@
+:root {
+    --uh-manoa-green: #006341;
+    --uh-manoa-gold: #FFD100;
+    --uh-manoa-dark-green: #00462A;
+    --white: #ffffff;
+  }
+  
+  .landing-hero {
+    background-color: var(--uh-manoa-green);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.5;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    color: var(--uh-manoa-gold);
+  }
+  
+  .feature p {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  
+  .cta-buttons .btn {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+  
