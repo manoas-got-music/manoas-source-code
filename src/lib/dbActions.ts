@@ -97,13 +97,13 @@ export async function createJamSession(session: { name: string; startTime: strin
 /**
  * Adds the currently signed in user's musicianID to the jam session's musicians array.
  */
-export async function joinSession(join: { jamSession: JamSession; musicianId: number; }) {
+export async function joinSession(data: { jamSessionId: number; musicianId: number; }) {
   // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
   await prisma.jamSession.update({
-    where: { id: join.jamSession.id },
+    where: { id: data.jamSessionId },
     data: {
       musicians: {
-        push: join.musicianId,
+        push: data.musicianId,
       },
     },
   });
