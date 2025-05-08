@@ -1,8 +1,10 @@
+/* eslint-disable import/extensions */
+
 'use client';
 
 import { useEffect, useState } from 'react';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import { JoinJamSession } from '@/components/joinJamSession';
+import JoinJamSession from '@/components/JoinJamSession';
 import { supabase } from '../lib/supabaseClient';
 
 export default function JamSessions() {
@@ -83,7 +85,7 @@ export default function JamSessions() {
                     <strong>Description:</strong>
                     {jam.description}
                   </Card.Text>
-                  <JoinJamSession />
+                  <JoinJamSession jamSession={jam} />
                 </Card.Body>
               </Card>
             </Col>

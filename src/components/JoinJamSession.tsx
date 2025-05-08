@@ -12,7 +12,7 @@ import { redirect } from 'next/navigation';
 import { joinSession } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { JoinSessionSchema } from '@/lib/validationSchemas';
-import { supabase } from '../lib/supabaseClient';
+// import { supabase } from '../lib/supabaseClient';
 
 const onSubmit = async (data: { jamSessionId: number; musicianId: number; }) => {
   // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
