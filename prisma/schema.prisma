@@ -47,24 +47,24 @@ model Stuff {
 }
 
 model Musician {
-  id          Int           @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   instrument  String
-  genres      String[] // ✅ 支持多个 genre
+  genres      String[]
   image       String
   description String
   owner       String
-  jamSessions JamSession[]  
 }
 
 model JamSession {
-  id          Int        @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   startTime   String
   endTime     String
-  date        DateTime   // Changed from String to DateTime
+  date        DateTime
   genre       String
   description String
   organizer   String
-  musicians   Musician[] @relation()
+  location    String
+  musicians   Int[]
 }
