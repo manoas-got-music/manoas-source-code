@@ -16,7 +16,7 @@ export default function BrowseMusicians() {
     const fetchMusicians = async () => {
       console.log('🎯 fetchMusicians triggered');
 
-      const { data, error } = await supabase.from('musicians').select('*');
+      const { data, error } = await supabase.from('Musicians').select('*');
 
       console.log('📦 Response from Supabase:', { data, error });
 
