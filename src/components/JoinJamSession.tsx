@@ -14,7 +14,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import { JoinSessionSchema } from '@/lib/validationSchemas';
 // import { supabase } from '../lib/supabaseClient';
 
-const onSubmit = async (data: { jamSessionId: number; musicianId: number; }) => {
+const onSubmit = async (data: { jamSessionId: number; musicianEmail: string; }) => {
   // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
   await joinSession(data);
   swal('Success', 'You have joined the session', 'success', {
@@ -25,13 +25,13 @@ const onSubmit = async (data: { jamSessionId: number; musicianId: number; }) => 
 const JoinJamSession = ({ jamSession }: { jamSession: JamSession }) => {
   // const { status } = useSession();
   // console.log('AddContactForm', status, session);
-  //  const {
+  // const {
   //  data: { user },
-  //  } = await supabase.auth.getUser();
+  // } = await supabase.auth.getUser();
 
   // const userId = user.id;
   const { data: session, status } = useSession();
-  // console.log('AddContactForm', status, session);
+  console.log('AddContactForm', status, session);
   const currentUser = session?.user?.email || '';
 
   const {
@@ -53,7 +53,7 @@ const JoinJamSession = ({ jamSession }: { jamSession: JamSession }) => {
         <Col>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <input type="hidden" {...register('jamSessionId')} value={jamSession.id} />
-            <input type="hidden" {...register('musicianId')} value={userId} />
+            <input type="hidden" {...register('musicianEmail')} value={currentUser} />
             <Form.Group className="form-group">
               <Row className="pt-3">
                 <Col>
