@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 interface NavBarProps {
   onSelect: (key: string) => void;
-  currentView: 'home' | 'browse' | 'about' | 'jam' | 'logout' | 'createSession' | string;
+  currentView: 'home' | 'browse' | 'about' | 'jam' | 'logout' | string;
 }
 
 const AppNavbar: React.FC<NavBarProps> = ({ onSelect, currentView }) => {
@@ -36,9 +36,6 @@ const AppNavbar: React.FC<NavBarProps> = ({ onSelect, currentView }) => {
           <Nav className="me-auto justify-content-start">
             <Nav.Link onClick={() => onSelect('jam')} active={currentView === 'jam'}>
               Find Jam Sessions
-            </Nav.Link>
-            <Nav.Link onClick={() => onSelect('createSession')} active={currentView === 'createSession'}>
-              Create Session
             </Nav.Link>
             <Nav.Link onClick={() => onSelect('browse')} active={currentView === 'browse'}>
               Browse Musicians

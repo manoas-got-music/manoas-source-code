@@ -68,7 +68,7 @@ async function main() {
   // Seeding default musicians
   configTyped.defaultMusicians.forEach(async (musician, index) => {
     console.log(`  Adding musician: ${musician.name}`);
-    await prisma.musician.upsert({
+    await prisma.musicians.upsert({
       where: { id: index + 1 },
       update: {},
       create: {
