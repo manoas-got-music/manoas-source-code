@@ -1,7 +1,12 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN"},
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "lihua@music.edu", "password": "changeme" },
+    { "email": "jacob@music.edu", "password": "changeme" },
+    { "email": "travis@music.edu", "password": "changeme" },
+    { "email": "emily@music.edu", "password": "changeme" }
+
   ],
 
   "defaultData": [
@@ -12,6 +17,15 @@
   ],
 
   "defaultMusicians": [
-    {"name": "John", "instrument": "Tuba", "genres": "Classical", "image": "/test.png", "description": "Mic test one two", "owner": "john@foo.com"}
+    {"name": "John", "instrument": "Tuba", "genres": "Classical", "image": "/test.png", "description": "Mic test one two", "owner": "john@foo.com" },
+    { "name": "Li Hua", "instrument": "Erhu, Piano", "genres": "Classical, Chinese Folk", "image": "/china-musician.png", 
+    "description": "An exchange student at the Central Conservatory of Music, I love erhu and Chinese folk music, and also play the piano.", 
+    "owner": "lihua@music.edu" },
+    { "name": "Jacob Miller", "instrument": "Guitar, Vocals", "genres": "Indie Rock, Jazz", "image": "/us-musician.png", 
+    "description": "Second-year student majoring in music production. I write original songs.", "owner": "jacob@music.edu" },
+    { "name": "Travis Thompson", "instrument": "Guitar, Vocals", "genres": "Jazz, Funk, Neo-Soul", "image": "/test.png", 
+    "description": "Third-year music major. Into improv, grooves, and late-night sessions.", "owner": "travis@music.edu" },
+    { "name": "Emily Park", "instrument": "Violin, Keyboard", "genres": "Pop, Lo-fi, K-Classical", "image": "/Emily-Park.png", 
+    "description": "UH sophomore. Likes lo-fi vibes and playing string covers of K-pop.", "owner": "emily@music.edu" }
   ]
 }

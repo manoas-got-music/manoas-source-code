@@ -2,7 +2,7 @@
 import { getServerSession } from 'next-auth';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
-import CreateJamSession from '@/components/CreateJamSession';
+import AddJamSession from '@/components/AddJamSession';
 
 const AddStuff = async () => {
   // Protect the page, only logged in users can access it.
@@ -14,7 +14,7 @@ const AddStuff = async () => {
   );
   return (
     <main>
-      <CreateJamSession />
+      <AddJamSession />
     </main>
   );
 };
