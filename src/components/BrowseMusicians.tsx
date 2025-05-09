@@ -14,17 +14,22 @@ export default function BrowseMusicians() {
 
   useEffect(() => {
     const fetchMusicians = async () => {
-      const { data, error } = await supabase.from('musicians').select('*');
+      console.log('🎯 fetchMusicians triggered');
+
+      const { data, error } = await supabase.from('Musicians').select('*');
+
+      console.log('📦 Response from Supabase:', { data, error });
+
       if (error) {
-        console.error('Failed to fetch musicians:', error);
+        console.error('❌ Failed to fetch musicians:', error);
       } else {
-        // 如果 genres 是数组，就转换为 string
         const formatted = data.map((m) => ({
           ...m,
           genres: Array.isArray(m.genres) ? m.genres.join(', ') : m.genres,
         }));
         setMusicians(formatted);
       }
+
       setLoading(false);
     };
 
