@@ -21,6 +21,7 @@
     "@supabase/supabase-js": "^2.49.4",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
+    "lint": "^0.8.19",
     "multiselect-react-dropdown": "^2.0.25",
     "next": "^14.2.24",
     "next-auth": "^4.24.7",
