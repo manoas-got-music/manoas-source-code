@@ -1,3 +1,6 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable max-len */
+
 'use client';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -9,8 +12,8 @@ const About = () => (
       <Col>
         <h1 className="text-center">About Manoas Got Music!</h1>
         <p className="mt-4">
-        Manoas Got Music is a platform designed to connect University of Hawaiʻi students who share musical interests, 
-          abilities, and goals. Whether you're looking for casual jam sessions or forming a performing band, Campus Jam 
+          Manoas Got Music is a platform designed to connect University of Hawaiʻi students who share musical interests, 
+          abilities, and goals. Whether you&apos;re looking for casual jam sessions or forming a performing band, Campus Jam 
           helps you find compatible musicians on campus to collaborate with and create something special.
         </p>
         <h2>Problem</h2>
@@ -23,7 +26,7 @@ const About = () => (
         <p>
           Campus Jam allows students to create profiles showcasing their musical tastes, capabilities, and goals. 
           These profiles also allow students to include links to YouTube videos or SoundCloud tracks to highlight their 
-          musicianship. Once profiles are created, students can browse others' profiles and find compatible musicians to 
+          musicianship. Once profiles are created, students can browse others&apos; profiles and find compatible musicians to 
           contact, based on specific criteria like taste, ability, and musical goals.
         </p>
         <h2>Key Features</h2>
@@ -38,12 +41,12 @@ const About = () => (
         <p>Once the basic functionality is implemented, we aim to enhance the platform with advanced features, such as:</p>
         <ul>
           <li>Organizing jam sessions, providing event details like location, time, musical type, and desired capabilities.</li>
-          <li>Creating a network of "who's played with who" to showcase musical collaborations.</li>
+          <li>Creating a network of &quot;who&apos;s played with who&quot; to showcase musical collaborations.</li>
           <li>Adding reviews for musicians, allowing others to give feedback on their playing style and collaboration skills.</li>
         </ul>
         <h2>Join Us!</h2>
         <p>
-          Whether you're a beginner or an experienced musician, Campus Jam helps you connect with like-minded people who share 
+          Whether you&apos;re a beginner or an experienced musician, Campus Jam helps you connect with like-minded people who share 
           your passion for music. Sign up now to find your next jam partner or group!
         </p>
       </Col>
@@ -52,4 +55,3 @@ const About = () => (
 );
 
 export default About;
-
