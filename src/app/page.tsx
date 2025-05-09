@@ -1,58 +1,108 @@
 'use client';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import '@/styles/landing.css';
-import { MusicNoteBeamed, People, CalendarCheck } from 'react-bootstrap-icons';
+import { useState } from 'react';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import UserProfile from '../components/UserProfile';
+import BrowseMusicians from '../components/BrowseMusicians';
+import JamSessions from '../components/JamSessions';
+import CreateJamSession from '../components/CreateJamSession';
+import AppNavbar from '../components/Navbar';
+import About from '../components/About';
 
-export default function LandingPage() {
-  const { data: session } = useSession();
-  const router = useRouter();
+const mockUser = {
+  name: 'Travis Thompson',
+  profilePic: '/test.png',
+  instrument: 'Guitar, Vocals',
+  genres: ['Jazz', 'Funk', 'Neo-Soul'],
+  goals: 'Looking to casually jam and maybe join a student band',
+  bio: 'Third-year music major. Into improv, grooves, and late-night sessions.',
+  youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  soundcloud: 'https://soundcloud.com/fakeuser123',
+};
 
-  if (session?.user) {
-    router.push('/dashboard');
-    return null;
-  }
+const Home = () => {
+  const [view, setView] = useState<'home' | 'browse' | 'about' | 'logout' | 'jam' | 'createSession' | 'edit'>('home');
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
-    <div className="landing-hero">
-      <Container className="text-center">
-        <h1 className="hero-title">🎵 Manoa’s Got Music</h1>
-        <p className="hero-subtitle">
-          Connect with fellow UH musicians,
-          share your sound, and join jam sessions around campus.
-          Whether you&apos;re a solo artist or looking to form a band — this platform is for you.
-          {' '}
-        </p>
+    <main>
+      <AppNavbar onSelect={(key: any) => setView(key as any)} currentView={view} />
+      <Container id="landing-page" fluid className="py-3">
+        {view === 'home' && (
+          <>
+            <Row className="align-middle text-center">
+              <Col xs={4}>
+                <Image src="/next.svg" width="150px" alt="Next.js Logo" />
+              </Col>
+              <Col xs={8} className="d-flex flex-column justify-content-center">
+                <h2>Welcome to Manoa’s Got Music 🎶</h2>
+                <p>Click below to preview a featured musician profile.</p>
+                <Button variant="primary" onClick={() => setShowProfile(!showProfile)}>
+                  {showProfile ? 'Hide' : 'Show'}
+                  Profile
+                </Button>
+              </Col>
+            </Row>
 
-        <Row className="justify-content-center mb-4">
-          <Col md={4} className="feature">
-            <MusicNoteBeamed className="feature-icon" />
-            <h5 className="mt-3">Discover Musicians</h5>
-            <p>Find students who play your favorite instruments or explore new genres.</p>
-          </Col>
-          <Col md={4} className="feature">
-            <CalendarCheck className="feature-icon" />
-            <h5 className="mt-3">Join Jam Sessions</h5>
-            <p>Attend or organize casual sessions — on campus or online.</p>
-          </Col>
-          <Col md={4} className="feature">
-            <People className="feature-icon" />
-            <h5 className="mt-3">Collaborate Easily</h5>
-            <p>Message students, link your music, and grow your network.</p>
-          </Col>
-        </Row>
+            {showProfile && (
+              <Row className="mt-5">
+                <Col>
+                  <UserProfile user={mockUser} />
+                </Col>
+              </Row>
+            )}
+          </>
+        )}
 
-        <div className="cta-buttons d-flex justify-content-center gap-3">
-          <Button variant="light" size="lg" href="/auth/signup">
-            Sign Up
-          </Button>
-          <Button variant="outline-light" size="lg" href="/auth/signin">
-            Sign In
-          </Button>
-        </div>
+        {view === 'browse' && (
+          <Row>
+            <Col>
+              <BrowseMusicians />
+            </Col>
+          </Row>
+        )}
+
+        {view === 'about' && (
+          <Row>
+            <Col>
+              <About />
+            </Col>
+          </Row>
+        )}
+
+        {view === 'jam' && (
+          <Row>
+            <Col>
+              <JamSessions />
+            </Col>
+          </Row>
+        )}
+        {view === 'createSession' && (
+          <Row>
+            <Col>
+              <CreateJamSession />
+            </Col>
+          </Row>
+        )}
+        {view === 'edit' && (
+          <Row>
+            <Col>
+              <h2>Your Profile</h2>
+              <UserProfile user={mockUser} />
+            </Col>
+          </Row>
+        )}
+
+        {view === 'logout' && (
+          <Row>
+            <Col>
+              <h2>You&apos;ve been logged out.</h2>
+            </Col>
+          </Row>
+        )}
       </Container>
-    </div>
+    </main>
   );
-}
+};
+
+export default Home;
