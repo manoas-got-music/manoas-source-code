@@ -70,7 +70,45 @@ export async function addJamSession(jam: Omit<Prisma.JamSessionCreateInput, 'id'
   await prisma.jamSession.create({ data: jam });
   redirect('/jam');
 }
+/**
+ * Adds a new jam session to the database.
+ */
+export async function createJamSession(session: { name: string; startTime: string; endTime: string;
+  date: string; genre: string; description: string; organizer: string; location: string; isPublic: boolean; }) {
+  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
 
+  await prisma.jamSession.create({
+    data: {
+      name: session.name,
+      startTime: session.startTime,
+      endTime: session.endTime,
+      date: session.date,
+      genre: session.genre,
+      description: session.description,
+      organizer: session.organizer,
+      location: session.location,
+      isPublic: session.isPublic,
+    },
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
+/**
+ * Adds the currently signed in user's musicianID to the jam session's musicians array.
+ */
+export async function joinSession(data: { jamSessionId: number; musicianEmail: string; }) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.jamSession.update({
+    where: { id: data.jamSessionId },
+    data: {
+      musicians: {
+        push: data.musicianEmail,
+      },
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/jam');
+}
 /**
  * Returns a list of jam sessions from the database.
  */

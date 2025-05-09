@@ -66,5 +66,5 @@ model JamSession {
   genre       String
   description String
   organizer   String
-  musicians   Musician[] @relation()
+  musicians   String[] @relation()
 }

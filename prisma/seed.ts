@@ -74,7 +74,7 @@ async function main() {
       create: {
         name: musician.name,
         instrument: musician.instrument,
-        genres: musician.genres.split(','), // Split the genres string into an array
+        genres: musician.genres, // Split the genres string into an array
         image: musician.image,
         description: musician.description,
         owner: musician.owner,
