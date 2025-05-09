@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import { Card, Row, Col, Container } from 'react-bootstrap';
+import JoinJamSession from '@/components/JoinJamSession';
 import { supabase } from '../lib/supabaseClient';
 
 export default function JamSessions() {
@@ -82,7 +83,7 @@ export default function JamSessions() {
                     <strong>Description:</strong>
                     {jam.description}
                   </Card.Text>
-                  <Button variant="primary">Join Session</Button>
+                  <JoinJamSession jamSession={jam} />
                 </Card.Body>
               </Card>
             </Col>
