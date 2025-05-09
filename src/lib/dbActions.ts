@@ -94,6 +94,22 @@ export async function createJamSession(session: { name: string; startTime: strin
   redirect('/list');
 }
 /**
+ * Adds the currently signed in user's musicianID to the jam session's musicians array.
+ */
+export async function joinSession(data: { jamSessionId: number; musicianEmail: string; }) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.jamSession.update({
+    where: { id: data.jamSessionId },
+    data: {
+      musicians: {
+        push: data.musicianEmail,
+      },
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/jam');
+}
+/**
  * Returns a list of jam sessions from the database.
  */
 export async function listJamSessions() {
