@@ -8,21 +8,21 @@ const About = () => (
       <Col>
         <h1 className="text-center">About Manoas Got Music!</h1>
         <p className="mt-4">
-        Manoas Got Music is a platform designed to connect University of Hawaiʻi students who share musical interests, 
-          abilities, and goals. Whether you're looking for casual jam sessions or forming a performing band, Campus Jam 
+          Manoas Got Music is a platform designed to connect University of Hawaiʻi students who share musical interests,
+          abilities, and goals. Whether you're looking for casual jam sessions or forming a performing band, Campus Jam
           helps you find compatible musicians on campus to collaborate with and create something special.
         </p>
         <h2>Problem</h2>
         <p>
-          Many UH students have musical talents but lack an easy way to connect with others who have similar tastes and 
-          compatible musical abilities. As a result, students miss out on opportunities to engage in informal jam sessions, 
+          Many UH students have musical talents but lack an easy way to connect with others who have similar tastes and
+          compatible musical abilities. As a result, students miss out on opportunities to engage in informal jam sessions,
           or even form performing musical groups.
         </p>
         <h2>Solution</h2>
         <p>
-          Campus Jam allows students to create profiles showcasing their musical tastes, capabilities, and goals. 
-          These profiles also allow students to include links to YouTube videos or SoundCloud tracks to highlight their 
-          musicianship. Once profiles are created, students can browse others' profiles and find compatible musicians to 
+          Campus Jam allows students to create profiles showcasing their musical tastes, capabilities, and goals.
+          These profiles also allow students to include links to YouTube videos or SoundCloud tracks to highlight their
+          musicianship. Once profiles are created, students can browse others' profiles and find compatible musicians to
           contact, based on specific criteria like taste, ability, and musical goals.
         </p>
         <h2>Key Features</h2>
@@ -42,7 +42,7 @@ const About = () => (
         </ul>
         <h2>Join Us!</h2>
         <p>
-          Whether you're a beginner or an experienced musician, Campus Jam helps you connect with like-minded people who share 
+          Whether you're a beginner or an experienced musician, Campus Jam helps you connect with like-minded people who share
           your passion for music. Sign up now to find your next jam partner or group!
         </p>
       </Col>
@@ -51,4 +51,3 @@ const About = () => (
 );
 
 export default About;
-
