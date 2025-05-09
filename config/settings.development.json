@@ -1,6 +1,6 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
+    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN"},
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
@@ -12,109 +12,6 @@
   ],
 
   "defaultMusicians": [
-    {
-      "name": "John",
-      "instrument": "Tuba",
-      "genres": "Classical",
-      "image": "/test.png",
-      "description": "Mic test one two",
-      "owner": "john@foo.com"
-    },
-    {
-      "name": "Emily Park",
-      "instrument": "Violin, Keyboard",
-      "genres": "Pop,Lo-fi,K-Classical",
-      "image": "/images/emily.jpg",
-      "description": "UH sophomore. Likes lo-fi vibes and playing string covers of K-pop.",
-      "owner": "emily@uh.edu"
-    },
-    {
-      "name": "Jason Lee",
-      "instrument": "Guitar",
-      "genres": "Rock,Alternative",
-      "image": "/images/jason.jpg",
-      "description": "Looking to form a band to play covers and original songs.",
-      "owner": "jason@uh.edu"
-    },
-    {
-      "name": "Sophia Kim",
-      "instrument": "Piano",
-      "genres": "Jazz,Classical",
-      "image": "/images/sophia.jpg",
-      "description": "Performs regularly at UH recitals, loves improv jazz.",
-      "owner": "sophia@uh.edu"
-    },
-    {
-      "name": "Liam Chen",
-      "instrument": "Drums",
-      "genres": "Metal,Rock",
-      "image": "/images/liam.jpg",
-      "description": "Drummer looking for a guitarist and bassist.",
-      "owner": "liam@uh.edu"
-    },
-    {
-      "name": "Ava Nguyen",
-      "instrument": "Flute",
-      "genres": "Classical,Film Score",
-      "image": "/images/ava.jpg",
-      "description": "Interested in orchestral-style jam sessions.",
-      "owner": "ava@uh.edu"
-    },
-    {
-      "name": "Noah Smith",
-      "instrument": "Bass",
-      "genres": "Funk,Jazz,R&B",
-      "image": "/images/noah.jpg",
-      "description": "Groovy bassist available evenings/weekends.",
-      "owner": "noah@uh.edu"
-    },
-    {
-      "name": "Mia Johnson",
-      "instrument": "Vocals",
-      "genres": "Indie,Alternative",
-      "image": "/images/mia.jpg",
-      "description": "Singer-songwriter, open to band collabs.",
-      "owner": "mia@uh.edu"
-    },
-    {
-      "name": "Lucas Wang",
-      "instrument": "Guitar",
-      "genres": "Blues,Rock",
-      "image": "/images/lucas.jpg",
-      "description": "Plays blues-rock covers. Down for jams.",
-      "owner": "lucas@uh.edu"
-    },
-    {
-      "name": "Olivia Garcia",
-      "instrument": "Keyboard",
-      "genres": "Pop,Electronic",
-      "image": "/images/olivia.jpg",
-      "description": "Loves synths and Ableton, looking for collabs.",
-      "owner": "olivia@uh.edu"
-    },
-    {
-      "name": "Ethan Davis",
-      "instrument": "Saxophone",
-      "genres": "Jazz,Funk",
-      "image": "/images/ethan.jpg",
-      "description": "Jazz major at UH. Looking to gig downtown.",
-      "owner": "ethan@uh.edu"
-    },
-    {
-      "name": "Isabella Reyes",
-      "instrument": "Viola",
-      "genres": "Classical,Pop String Covers",
-      "image": "/images/isabella.jpg",
-      "description": "Enjoys arranging K-pop for strings.",
-      "owner": "isabella@uh.edu"
-    },
-    {
-      "name": "Daniel Martinez",
-      "instrument": "Trumpet",
-      "genres": "Latin,Jazz",
-      "image": "/images/daniel.jpg",
-      "description": "Mariachi and jazz band experience.",
-      "owner": "daniel@uh.edu"
-    }
+    {"name": "John", "instrument": "Tuba", "genres": "Classical", "image": "/test.png", "description": "Mic test one two", "owner": "john@foo.com"}
   ]
 }
