@@ -26,7 +26,3 @@ export const createJamSessionSchema = Yup.object({
   location: Yup.string().required(),
   isPublic: Yup.boolean().required(),
 });
-export const JoinSessionSchema = Yup.object({
-  jamSessionId: Yup.number().required(),
-  musicianEmail: Yup.string().required(),
-});
