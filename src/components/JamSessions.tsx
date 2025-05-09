@@ -1,7 +1,6 @@
 'use client';
 
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
-import JoinJamSession from '@/components/JoinJamSession';
 
 const mockJamSessions = [
   {
@@ -58,7 +57,7 @@ export default function JamSessions() {
                   <strong>Host:</strong>
                   {jam.host}
                 </Card.Text>
-                <JoinJamSession jamSession={jam} />
+                <Button variant="primary">Join Session</Button>
               </Card.Body>
             </Card>
           </Col>
